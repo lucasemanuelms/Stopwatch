@@ -15,7 +15,7 @@ function time(){
     }else if(numero<60){
         ch1.innerText = `00:00:${numero}`
         numero++
-    }else if(numero>=60){
+    }else if(numero>=60 && numero<=3600){
        min = Math.trunc(numero/60)//O Math.trunc despreza a parte decimal
        seg = numero%60
 
@@ -32,12 +32,14 @@ function time(){
             ch1.innerText =`00:${min}:${seg}`
             numero++
         }
+    }else{
+        
     }
     
 }
 
 function iniciar(){
-    setInterval(time, 10)
+    setInterval(time, 5)
 }
 
 function zerar(){
