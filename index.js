@@ -15,17 +15,18 @@ function time(){
     }else if(numero<60){
         ch1.innerText = `00:00:${numero}`
         numero++
-    }else if(numero>=60 && numero<=3600){
+    }else if(numero>=60 && min<=60){
+
        min = Math.trunc(numero/60)//O Math.trunc despreza a parte decimal
        seg = numero%60
 
         if(min<10 && seg<10){
             ch1.innerText =`00:0${min}:0${seg}`
             numero++
-        }else if(min<10 && seg>10){
+        }else if(min<10 && seg>=10){
             ch1.innerText =`00:0${min}:${seg}`
             numero++
-        }else if(min>10 && seg<10){
+        }else if(min>=10 && seg<10){
             ch1.innerText =`00:${min}:0${seg}`
             numero++
         }else{
@@ -33,13 +34,40 @@ function time(){
             numero++
         }
     }else{
+
+        hora = Math.trunc(min/60)
+
         
+        if(hora<10 && min<10 && seg<10){
+            ch1.innerText =`0${hora}:0${min}:0${seg}`
+            numero++
+        }else if(hora<10 && min<10 && seg>=10){
+            ch1.innerText =`0${hora}:0${min}:${seg}`
+            numero++
+        }else if(hora<10 && min>=10 && seg>=10){
+            ch1.innerText =`0${hora}:${min}:${seg}`
+            numero++
+        }else if(hora<10 && min>=10 && seg<10){
+            ch1.innerText =`0${hora}:${min}:0${seg}`
+            numero++
+        }else if(hora>=10 && min<10 && seg<10){
+            ch1.innerText =`${hora}:0${min}:0${seg}`
+            numero++
+        }else if(hora>=10 && min<10 && seg>=10){
+            ch1.innerText =`0${hora}:0${min}:${seg}`
+            numero++
+        }else if(hora>=10 && min>=10 && seg<10){
+            ch1.innerText =`${hora}:${min}:0${seg}`
+            numero++
+        }else{
+            ch1.innerText =`${hora}:${min}:${seg}`
+            numero++
+        }
     }
-    
 }
 
 function iniciar(){
-    setInterval(time, 5)
+    setInterval(time, 1)
 }
 
 function zerar(){
