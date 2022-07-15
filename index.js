@@ -2,68 +2,12 @@ let ch1 = document.getElementsByTagName("h1")[0]
 let bt_i = document.getElementsByClassName("bt-iniciar")
 let bt_z = document.getElementsByClassName("bt-zerar")
 
-let numero = 0
-let min = 0
 let seg = 0
+let min = 0
 let hora = 0
 
 function time(){
-
-    if(numero<10){
-        ch1.innerText = `00:00:0${numero}`
-        numero++
-    }else if(numero<60){
-        ch1.innerText = `00:00:${numero}`
-        numero++
-    }else if(numero>=60 && min<=60){
-
-       min = Math.trunc(numero/60)//O Math.trunc despreza a parte decimal
-       seg = numero%60
-
-        if(min<10 && seg<10){
-            ch1.innerText =`00:0${min}:0${seg}`
-            numero++
-        }else if(min<10 && seg>=10){
-            ch1.innerText =`00:0${min}:${seg}`
-            numero++
-        }else if(min>=10 && seg<10){
-            ch1.innerText =`00:${min}:0${seg}`
-            numero++
-        }else{
-            ch1.innerText =`00:${min}:${seg}`
-            numero++
-        }
-    }else{
-
-        hora = Math.trunc(min/60)
-
-        
-        if(hora<10 && min<10 && seg<10){
-            ch1.innerText =`0${hora}:0${min}:0${seg}`
-            numero++
-        }else if(hora<10 && min<10 && seg>=10){
-            ch1.innerText =`0${hora}:0${min}:${seg}`
-            numero++
-        }else if(hora<10 && min>=10 && seg>=10){
-            ch1.innerText =`0${hora}:${min}:${seg}`
-            numero++
-        }else if(hora<10 && min>=10 && seg<10){
-            ch1.innerText =`0${hora}:${min}:0${seg}`
-            numero++
-        }else if(hora>=10 && min<10 && seg<10){
-            ch1.innerText =`${hora}:0${min}:0${seg}`
-            numero++
-        }else if(hora>=10 && min<10 && seg>=10){
-            ch1.innerText =`0${hora}:0${min}:${seg}`
-            numero++
-        }else if(hora>=10 && min>=10 && seg<10){
-            ch1.innerText =`${hora}:${min}:0${seg}`
-            numero++
-        }else{
-            ch1.innerText =`${hora}:${min}:${seg}`
-            numero++
-        }
-    }
+    
 }
 
 function iniciar(){
@@ -75,3 +19,48 @@ function zerar(){
     numero = 0
     document.location.reload()//Recarrega a página que daí o cronômetro para
 }
+
+
+
+
+// if(hora<10 && min<10 && seg<10){
+//     ch1.innerText = `0${hora}:0${min}:0${seg}`
+//     seg++
+// }else if(hora<10 && min<10 && seg<60){
+//     ch1.innerText = `0${hora}:0${min}:${seg}`
+//     seg++
+// }else if(seg>=60 && seg<=3600){
+
+//    min += 1
+//    seg = seg%60
+
+//    if(hora<10 && min<10 && seg<10){
+//     ch1.innerText =`0${hora}:0${min}:0${seg}`
+//     seg++
+//     }else if(hora<10 && min<10 && seg>=10){
+//         ch1.innerText =`0${hora}:0${min}:${seg}`
+//         seg++
+//     }else if(hora<10 && min>=10 && seg>=10){
+//         ch1.innerText =`0${hora}:${min}:${seg}`
+//         seg++
+//     }else if(hora<10 && min>=10 && seg<10){
+//         ch1.innerText =`0${hora}:${min}:0${seg}`
+//         seg++
+//     }else if(hora>=10 && min<10 && seg<10){
+//         ch1.innerText =`${hora}:0${min}:0${seg}`
+//         seg++
+//     }else if(hora>=10 && min<10 && seg>=10){
+//         ch1.innerText =`0${hora}:0${min}:${seg}`
+//         seg++
+//     }else if(hora>=10 && min>=10 && seg<10){
+//         ch1.innerText =`${hora}:${min}:0${seg}`
+//         seg++
+//     }else{
+//         ch1.innerText =`${hora}:${min}:${seg}`
+//         seg++
+//     }
+// }else{
+//     hora = hora + 1
+//     min = seg%60
+//     seg = seg%60
+// }
